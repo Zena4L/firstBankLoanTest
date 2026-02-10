@@ -51,12 +51,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return exceptionResponseBuilder(String.join(", ", errors), HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(BadRequestException.class)
-    public ResponseEntity<Object> handleBadRequest(BadRequestException ex) {
-        log.error("invalid request %s", ex);
-        return exceptionResponseBuilder(ex.getMessage(), HttpStatus.BAD_REQUEST);
-    }
-
 
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<Object> handle404Exception(NotFoundException ex) {
